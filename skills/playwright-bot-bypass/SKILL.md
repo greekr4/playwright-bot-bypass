@@ -1,5 +1,5 @@
 ---
-name: Playwright Bot Bypass
+name: playwright-bot-bypass
 description: This skill should be used when the user asks to "bypass bot detection", "avoid CAPTCHA", "stealth browser automation", "undetected playwright", "bypass Google bot check", "rebrowser-playwright", or needs to automate websites that detect and block bots.
 version: 1.0.0
 ---
