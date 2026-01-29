@@ -1,0 +1,38 @@
+{
+  "name": "playwright-bot-bypass",
+  "displayName": "Playwright Bot Bypass",
+  "description": "Bypass bot detection using rebrowser-playwright (Node.js) or undetected-chromedriver (Python). Pass bot.sannysoft.com tests and automate Google without CAPTCHA.",
+  "version": "1.0.0",
+  "author": "greekr4",
+  "repository": "https://github.com/greekr4/playwright-bot-bypass",
+  "license": "MIT",
+  "keywords": [
+    "playwright",
+    "bot-detection",
+    "stealth",
+    "captcha-bypass",
+    "web-scraping",
+    "automation",
+    "rebrowser",
+    "undetected-chromedriver"
+  ],
+  "categories": [
+    "automation",
+    "web-scraping",
+    "testing"
+  ],
+  "triggers": [
+    "bypass bot detection",
+    "avoid CAPTCHA",
+    "stealth browser",
+    "undetected playwright",
+    "rebrowser-playwright",
+    "web scraping blocked"
+  ],
+  "dependencies": {
+    "node": ["rebrowser-playwright"],
+    "python": ["undetected-chromedriver"]
+  },
+  "platforms": ["macos", "linux", "windows"],
+  "minClaudeCodeVersion": "1.0.0"
+}
