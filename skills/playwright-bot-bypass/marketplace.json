@@ -1,6 +1,6 @@
 {
   "name": "playwright-bot-bypass",
-  "displayName": "Playwright Bot Bypass",
+  "displayName": "playwright-bot-bypass",
   "description": "Bypass bot detection using rebrowser-playwright (Node.js) or undetected-chromedriver (Python). Pass bot.sannysoft.com tests and automate Google without CAPTCHA.",
   "version": "1.0.0",
   "author": "greekr4",
