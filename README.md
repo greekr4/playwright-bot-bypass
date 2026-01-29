@@ -5,7 +5,7 @@ Claude Code skill to bypass bot detection using `rebrowser-playwright` (Node.js)
 ## Installation
 
 ```
-/install-skill greekr4/playwright-bot-bypass
+npx skills add greekr4/playwright-bot-bypass
 ```
 
 ## Features
