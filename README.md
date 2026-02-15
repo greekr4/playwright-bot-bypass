@@ -1,5 +1,7 @@
 # playwright-bot-bypass
 
+> 🔥 Camofox + Nitter blocked? This works as an alternative for Twitter/X scraping without login.
+
 Claude Code skill to bypass bot detection using `rebrowser-playwright` (Node.js) or `undetected-chromedriver` (Python).
 
 ## Installation
@@ -12,9 +14,19 @@ npx skills add greekr4/playwright-bot-bypass
 
 - ✅ Pass bot.sannysoft.com all tests
 - ✅ Google search without CAPTCHA
-- ✅ Real GPU fingerprint (Apple M2, etc.)
+- ✅ Twitter/X scraping without login
+- ✅ Real GPU fingerprint (Apple M2, NVIDIA, etc.)
 - ✅ WebDriver property removed
 - ✅ Works with Node.js and Python
+
+## A/B Test: Standard vs Stealth
+
+| Standard Playwright (Detected) | rebrowser-playwright (Bypassed) |
+|:---:|:---:|
+| ![Detected](ab-test-detected.png) | ![Stealth](ab-test-stealth.png) |
+
+> Left: Standard Playwright exposes `navigator.webdriver = true` (red).
+> Right: rebrowser-playwright removes it completely (green).
 
 ## Test Results
 
@@ -59,7 +71,8 @@ pip install undetected-chromedriver
 ```python
 import undetected_chromedriver as uc
 
-driver = uc.Chrome(version_main=144)  # Match your Chrome version
+# Check your Chrome version at chrome://version
+driver = uc.Chrome(version_main=133)
 driver.get('https://google.com')
 ```
 
@@ -73,10 +86,11 @@ driver.get('https://google.com')
 
 ## Scripts Included
 
-- `scripts/bot-detection-test.mjs` - Test if bypass is working
-- `scripts/stealth-template.mjs` - Reusable stealth browser template
-- `examples/stealth-google-search.mjs` - Google search example
-- `examples/ab-test.mjs` - Compare detected vs stealth
+- `skills/playwright-bot-bypass/scripts/bot-detection-test.mjs` - Test if bypass is working
+- `skills/playwright-bot-bypass/scripts/stealth-template.mjs` - Reusable stealth browser template
+- `skills/playwright-bot-bypass/examples/stealth-google-search.mjs` - Google search example
+- `skills/playwright-bot-bypass/examples/ab-test.mjs` - Compare detected vs stealth
+- `skills/playwright-bot-bypass/examples/stealth-twitter-scrape.mjs` - Twitter/X profile scraping
 
 ## License
 

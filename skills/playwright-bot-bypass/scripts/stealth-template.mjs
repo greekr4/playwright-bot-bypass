@@ -94,7 +94,8 @@ export async function humanType(page, selector, text) {
 }
 
 // CLI: Run directly to test
-if (import.meta.url === `file://${process.argv[1]}`) {
+const scriptPath = process.argv[1]?.replace(/\\/g, '/');
+if (import.meta.url === `file://${scriptPath}` || import.meta.url === `file:///${scriptPath}`) {
   console.log('Testing stealth browser...');
   const { browser, page } = await createStealthBrowser();
   await page.goto('https://bot.sannysoft.com');

@@ -43,11 +43,15 @@ const pageB = await contextB.newPage();
 // Navigate both to bot detection site
 console.log('\n📡 Opening bot detection test site...\n');
 await Promise.all([
-  pageA.goto('https://bot.sannysoft.com'),
-  pageB.goto('https://bot.sannysoft.com')
+  pageA.goto('https://bot.sannysoft.com', { waitUntil: 'networkidle' }),
+  pageB.goto('https://bot.sannysoft.com', { waitUntil: 'networkidle' })
 ]);
 
-await new Promise(r => setTimeout(r, 3000));
+// Wait for test tables to render on both pages
+await Promise.all([
+  pageA.waitForSelector('table tr td', { timeout: 10000 }),
+  pageB.waitForSelector('table tr td', { timeout: 10000 })
+]);
 
 // Check WebDriver status
 const resultA = await pageA.evaluate(() => {
@@ -91,10 +95,6 @@ await Promise.all([
   pageB.screenshot({ path: 'ab-test-stealth.png' })
 ]);
 console.log('📸 Screenshots saved: ab-test-detected.png, ab-test-stealth.png\n');
-
-console.log('Compare the two browser windows!');
-console.log('Closing in 15 seconds...');
-await new Promise(r => setTimeout(r, 15000));
 
 await browserA.close();
 await browserB.close();

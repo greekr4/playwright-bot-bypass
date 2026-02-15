@@ -1,7 +1,7 @@
 {
   "name": "playwright-bot-bypass",
   "displayName": "playwright-bot-bypass",
-  "description": "Bypass bot detection using rebrowser-playwright (Node.js) or undetected-chromedriver (Python). Pass bot.sannysoft.com tests and automate Google without CAPTCHA.",
+  "description": "Bypass bot detection using rebrowser-playwright (Node.js) or undetected-chromedriver (Python). Pass bot.sannysoft.com tests, automate Google without CAPTCHA, and scrape Twitter/X without login (Camofox + Nitter alternative).",
   "version": "1.0.0",
   "author": "greekr4",
   "repository": "https://github.com/greekr4/playwright-bot-bypass",
@@ -14,7 +14,11 @@
     "web-scraping",
     "automation",
     "rebrowser",
-    "undetected-chromedriver"
+    "undetected-chromedriver",
+    "twitter",
+    "x-scraping",
+    "nitter-alternative",
+    "camofox"
   ],
   "categories": [
     "automation",
@@ -27,7 +31,9 @@
     "stealth browser",
     "undetected playwright",
     "rebrowser-playwright",
-    "web scraping blocked"
+    "web scraping blocked",
+    "twitter scraping",
+    "nitter alternative"
   ],
   "dependencies": {
     "node": ["rebrowser-playwright"],

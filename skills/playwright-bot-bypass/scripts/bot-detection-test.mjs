@@ -28,8 +28,10 @@ async function testBotDetection() {
   const page = await context.newPage();
 
   console.log('📡 Navigating to bot.sannysoft.com...\n');
-  await page.goto('https://bot.sannysoft.com');
-  await page.waitForTimeout(3000);
+  await page.goto('https://bot.sannysoft.com', { waitUntil: 'networkidle' });
+
+  // Wait for test table to render
+  await page.waitForSelector('table tr td', { timeout: 10000 });
 
   // Check key detection points
   const results = await page.evaluate(() => {
@@ -94,8 +96,6 @@ async function testBotDetection() {
   await page.screenshot({ path: 'bot-detection-result.png' });
   console.log('📸 Screenshot saved: bot-detection-result.png\n');
 
-  console.log('Closing in 5 seconds...');
-  await page.waitForTimeout(5000);
   await browser.close();
 }
 

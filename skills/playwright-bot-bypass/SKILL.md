@@ -106,6 +106,7 @@ All items should show green (passed).
 
 - **`examples/stealth-google-search.mjs`** - Google search without CAPTCHA
 - **`examples/ab-test.mjs`** - Compare detected vs stealth side-by-side
+- **`examples/stealth-twitter-scrape.mjs`** - Twitter/X profile scraping without login
 
 ## Limitations
 
@@ -149,8 +150,8 @@ pip install undetected-chromedriver
 ```python
 import undetected_chromedriver as uc
 
-# Specify your Chrome version
-driver = uc.Chrome(version_main=144)
+# Check your Chrome version at chrome://version
+driver = uc.Chrome(version_main=133)
 
 driver.get("https://www.google.com")
 search_box = driver.find_element("name", "q")
@@ -186,8 +187,14 @@ result = subprocess.run(['node', 'stealth-script.mjs', query], capture_output=Tr
 ### Browser Not Opening?
 
 ```bash
-# Verify Chrome is installed
+# macOS
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+
+# Windows
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --version
+
+# Linux
+google-chrome --version
 ```
 
 ### WebGL Still Shows SwiftShader?

@@ -30,16 +30,17 @@ async function stealthGoogleSearch(query) {
   const page = await context.newPage();
 
   // Navigate to Google
-  await page.goto('https://www.google.com');
-  await page.waitForTimeout(1000);
+  await page.goto('https://www.google.com', { waitUntil: 'domcontentloaded' });
 
-  // Enter search query
+  // Wait for search box to be ready
+  await page.waitForSelector('textarea[name="q"]', { timeout: 10000 });
+
+  // Enter search query and submit
   await page.fill('textarea[name="q"]', query);
-  await page.waitForTimeout(500);
   await page.press('textarea[name="q"]', 'Enter');
 
-  // Wait for results
-  await page.waitForTimeout(3000);
+  // Wait for search results to load
+  await page.waitForSelector('div.g, #captcha, #sorry', { timeout: 10000 }).catch(() => {});
 
   // Check if we got blocked
   const url = page.url();
@@ -69,8 +70,6 @@ async function stealthGoogleSearch(query) {
   await page.screenshot({ path: 'google-search-result.png' });
   console.log('📸 Screenshot saved: google-search-result.png\n');
 
-  console.log('Closing in 10 seconds...');
-  await page.waitForTimeout(10000);
   await browser.close();
 }
 
